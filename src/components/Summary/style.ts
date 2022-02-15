@@ -25,8 +25,12 @@ export const Container = styled.div`
             font-weight: 500;
             line-height: 3rem;
         }
-        &.highlight-background {
+        &.positive {
             background: var(--gren);
         }
-    }
+        
+        &.negative {
+           background: #e52e4d;
+        }
+   }
 `

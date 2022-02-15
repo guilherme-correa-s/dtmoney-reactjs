@@ -23,6 +23,8 @@ export function Summary() {
         totals: 0
     });
 
+    const totalsNegativeOrPositive = summary.totals > 0 ? 'positive' : 'negative';
+
     return (
         <Container>
             <div>
@@ -40,12 +42,12 @@ export function Summary() {
                     <p>Saídas</p>
                     <img src={outcomeImg} alt="Saída" />
                 </header>
-                <strong>- {new Intl.NumberFormat('pt-BR', {
+                <strong>-{new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
                 }).format(summary.withdraws)}</strong>
             </div>
-            <div className='highlight-background'>
+            <div className={totalsNegativeOrPositive}>
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="Total" />
@@ -55,6 +57,6 @@ export function Summary() {
                     currency: 'BRL'
                 }).format(summary.totals)}</strong>
             </div>
-        </Container>
+        </Container >
     )
 }
